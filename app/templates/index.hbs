@@ -1,0 +1,25 @@
+<p>This is an app using the <strong>ember-examples</strong> addon.</p>
+
+<p>What you are seeing here is <pre class="inline">templates/index.hbs</pre> provided by the addon. By default, the contents fo the addon's <pre class="inline">app</pre> folder are merged with the app automatically. However, any files in the same location already present in the app take precedence over files provided by the addon. Since <pre class="inline">application.hbs</pre> is present by default, we cannot override it.</p>
+
+<p>However, since the default route we move to when navigating to the application url is <pre class="inline">application.index</pre>, the <pre class="inline">index.hbs</pre> template provided by the addon is displayed here automatically, within the <pre class="inline">outlet</pre> of the application template.</p>
+
+<p>You will notice we are also styling the <pre class="inline">pre</pre> tag using the addon's <pre class="inline">included</pre> hook in <pre class="inline">index.js</pre>. By default, this tag is displayed as block. However, we're using custom styles to display it bolded and inline.</p> If you wan't to see how it's done, take a look at the addon's <pre class="inline">index.js</pre> file. It's all well commented there.
+
+<h2>Using a component</h2>
+
+<p>Let us now use a component which was provided by the addon. It's a simple square that changes from a red to a blue color with a click:</p>
+
+{{red-blue-square}}
+
+<p>How we made it available to the app can seem a bit weird at first, but it's all explained in the code. Take a look at a few files to understand it</p>
+
+<ul>
+  <li><pre class="inline">addon/components/red-blue-square.js</pre></li>
+  <li><pre class="inline">addon/templates/components/red-blue-square.js</pre></li>
+  <li><pre class="inline">addon/styles/red-blue-square.css</pre></li>
+  <li><pre class="inline">app/components/red-blue-square.js</pre></li>
+  <li><pre class="inline">app/templates/components/red-blue-square.js</pre></li>
+</ul>
+
+<p>If you did Ember-CLI development before, but haven't dealt with developing addons too much, you probably raised an eyebrow when you saw the last file in the list, but trust me, it's well explained within the file's comments, so take a look.</p>

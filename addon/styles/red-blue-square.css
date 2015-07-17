@@ -1,0 +1,16 @@
+.red-blue-square {
+  font-weight: bold;
+  color: black;
+  height: 50px;
+  width: 50px;
+  float: left;
+  clear: both;
+}
+
+.red-blue-square.red {
+  background: red;
+}
+
+.red-blue-square.blue {
+  background: blue;
+}
