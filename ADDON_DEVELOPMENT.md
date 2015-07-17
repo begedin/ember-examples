@@ -1,7 +1,7 @@
 # Overview
 
 * [Creating and running an addon](#creating-and-running-an-addon)
-  * [How to initialize an addon](#how-to-createinitialize-an-addon)
+  * [How to initialize an addon](#how-to-initialize-an-addon)
   * [How to run the addon](#how-to-run-the-addon)
     * [Running the addon directly through the generated dummy app](#running-the-addon-directly-through-the-generated-dummy-app)
     * [Running the addon through an external app with live-reload](#running-the-addon-through-an-external-app-with-live-reload) 
