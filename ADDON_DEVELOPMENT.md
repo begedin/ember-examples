@@ -1,32 +1,27 @@
 # Overview
 
-* How to start
-  * Initialize an addon (just a few words. should be pretty clear)
-* How to run it
-  * From the dummy app inside `/tests` - explaining the dummy app, what it's for, etc.
-  * From an external consuming app
-    * How to use `npm link`
-    * How to enable live-reloading
-
-* Explaining the anatomy - the `addon` vs the `app` folder.
-  * Special consideration for components and the approach of defining it in `addon`, then import-exporting in `app`
-
-* Including vendor stuff (`bower` and `vendor` folders)
-
-* Including styles
-  * Default method - add `.css` to `addon/styles`
-  * Advanced - making it work with `.sass`
-
-* Dependencies
-
-* Anatomy of `index.js`
-  * Hooks and how they work
-  * Maybe talk about trees for a bit
-  * How it works with the actual `Addon` model
+* [Creating and running an addon](#creating-and-running-an-addon)
+  * [How to initialize an addon](#how-to-createinitialize-an-ember-cli-addon)
+  * [How to run the addon](#how-to-run-the-addon)
+    * [Running the addon directly through the generated dummy app](#running-the-addon-directly-through-the-generated-dummy-app)
+    * [Running the addon through an external app with live-reload](#running-the-addon-through-an-external-app-with-live-reload) 
+      * [Using npm link to link to avoid constant reinstalling](#using-npm-link-to-link-to-avoid-constant-reinstalling)
+      * [Enabling live-reloading in a linked addon](#enabling-live-reloading-in-a-linked-addon)
+* [The anatomy of an addon](#the-anatomy-of-an-addon)
+  * [package.json](#packagejson)
+  * [index.js or some other entry script](#indexjs-or-some-other-entry-script)
+    * [Hook order of execution](#hook-order-of-execution)
+  * [The app and addon folders](#the-app-and-addon-folders)
+  * [Special consideration: Components](#special-consideration-components)
+  * [Special consideration: Styles](#special-consideration-styles)
+    * [Including addon-specific styles](#including-addon-specific-styles)
+    * [Including bower/vendor styles](#including-bowervendor-styles)
+    * [Using sass](#using-sass)
+* Addon dependencies and nesting (not written)
   
 # Creating and running an addon
   
-## How to create/initialize an Ember-CLI addon
+## How to initialize an Ember-CLI addon
 
 Starting the development of an Ember-CLI addon is a pretty simple process, really. Ember-CLI provides a generator that does the initial work for you.
 
@@ -464,7 +459,7 @@ The result of that is that we get to use the component in the app directly, but 
 
 **So why does the template have to go into the `app` folder directly?** Simply put, due to limitations. ES6 modules are namespaced, so we can deal with importing and exporting. Handlebars templates have no concept of namespaces. It's just the way it is, at least right now.
 
-### Special consideration - Styles
+### Special consideration: Styles
 
 So now we want our addon to add styles to the app using it. Generally speaking, this isn't a good idea. The application should have its own consistent set of styles.
 
@@ -472,7 +467,7 @@ However, sometimes it can make sense. Maybe we have a component with bits that s
 
 In other cases, maybe our addon is actually a wrapper for some non-ember library or UI element, so we need to include its styles in order to not break some core functionality, or provide a style baseline.
 
-#### Include addon-specific styles
+#### Including addon-specific styles
 
 It's simple, really. **We save all the styles to `/addon/styles/`**
 
@@ -515,7 +510,7 @@ What the `vendor` folder is for will be explained in a separate section.
 
 For now, I will emphasize that this sort of importing results in the same outcome as does defining styles in the `addon/styles` folder - they get concatenated into `vendor.css`. The difference is the intent. **Styles in `addon/styles` are styles we create as addon developers. Styles in `vendor` or `bower_components` are styles we inherit through 3rd party dependencies.**
 
-#### Using .sass
+#### Using sass
 
 If the addon deals with UI and is even remotely complex, we will most likely end up wanting to use `.sass` with it. 
 
