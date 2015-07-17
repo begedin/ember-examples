@@ -1,0 +1,39 @@
+/**
+  Here's what happens with styles here:
+
+  0. 'addon.scss' is the main file in the bunch
+  1. Based on a chain of imports starting in addon.scss, everything else gets
+     joined together.
+  2. The joined files get compiled into 'addon.css'
+  3. 'addon.css' gets added to 'vendor.css'
+
+  NOTE1
+
+  At the time of me writing this, ember-cli-sass has an issue, where the addon's
+  '.sass' doesn't get added to the vendor.css.
+
+  There is a pending fix for this issue, the branch of which I'm temporarily
+  using as the ember-cli-sass repo for now.
+
+  To install it from that specific branch, I'm using
+
+    npm install --save git+https://github.com/dukex/ember-cli-sass.git#bugfix/addon-styles
+
+  NOTE2
+
+  As soon as we add ember-cli-sass to our addon, the default behavior where
+  '.css' files inside 'addon/styles' get joined together into 'vendor.css' is
+  off. Instead, we have to use '@import' from 'addon.scss'.
+
+  This should not really be a problem. If we're using sass, we should use sass
+  conventions anyway.
+
+*/
+
+@import 'red-blue-square';
+
+p, h2 {
+  font-family: Arial, Helvetica, Sans-serif;
+  font-size: 110%;
+  line-height: 120%;
+}

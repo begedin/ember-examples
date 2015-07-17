@@ -1,0 +1,54 @@
+{{!--
+
+  A and this is where the nice explanation I wrote down in
+
+    app/components/red-blue-square.js
+
+  breaks down a bit.
+
+  Ideally, we would define our template in the addon folder and then
+  import-export it here.
+
+  However, while we could define the template as a '.js' ('.hbs' gets compiled
+  into '.js' by Handlebars anyway) and do some importing/exporting, the default
+  behavior of an addon is that it doesn't really look for any templates to
+  compile inside of `addon/templates`.
+
+  Due to that, we have to define our component's template inside the app
+  directly. It's ugly, but it's the only way to do it without some customization
+  of how the addon works.
+
+  If we do prefer customization, then we have that option to.
+
+  The addon called 'ember-modal-dialog' does a clever trick inside it's
+  index.js. It uses the 'treeForAddonTemplates' hook. Here is the simplified
+  version that does the thing that concerns us:
+
+  // index.js
+  treeForAddonTemplates: function(tree) {
+    var baseTemplatesPath = path.join(this.root, 'addon/templates');
+
+    return this.treeGenerator(baseTemplatesPath);
+  }
+
+  With that, the 'addon/templates' folder is added as a place for the addon to
+  look for templates to compile.
+
+  We can now define our templates inside 'addon/templates'. During the build
+  process, they will now get compiled into '.js' modules with exports.
+
+  Due to that fact, instead of this file,
+    'app/templates/components/red-blue-square.hbs'
+  we can instead make a '.js' file
+    'app/templates/components/red-blue-square.js'
+  with the contents:
+
+    import RedBlueSquareTmpl from 'addon/templates/components/red-blue-square';
+
+    export default RedBlueSquareTmpl;
+
+  That way, our component template behavior is made consistent with the
+  component definition behavior.
+--}}
+
+Click me!

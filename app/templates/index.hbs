@@ -16,10 +16,13 @@
 
 <ul>
   <li><pre class="inline">addon/components/red-blue-square.js</pre></li>
-  <li><pre class="inline">addon/templates/components/red-blue-square.js</pre></li>
   <li><pre class="inline">addon/styles/red-blue-square.css</pre></li>
   <li><pre class="inline">app/components/red-blue-square.js</pre></li>
-  <li><pre class="inline">app/templates/components/red-blue-square.js</pre></li>
+  <li><pre class="inline">app/templates/components/red-blue-square.hbs</pre></li>
 </ul>
 
-<p>If you did Ember-CLI development before, but haven't dealt with developing addons too much, you probably raised an eyebrow when you saw the last file in the list, but trust me, it's well explained within the file's comments, so take a look.</p>
+<p>If you have some Ember-CLI experience, but not with addons, then the file list might seem a bit weird at first. It's all explained in the code for each specific file.</p>
+
+<h2>Using sass</h2>
+
+<p>Addons can use sass for styles in the same way an Ember-CLI app can do it. There are a few special considerations, though, all of which are explained through comments in <pre class="inline">index.js</pre> and the <pre class="inline">.sass</pre> files inside the <pre class="inline">addon/styles</pre> folder.</p>

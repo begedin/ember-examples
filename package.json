@@ -40,7 +40,8 @@
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-babel": "^5.0.0"
+    "ember-cli-babel": "^5.0.0",
+    "ember-cli-sass": "git+https://github.com/dukex/ember-cli-sass.git#bugfix/addon-styles"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

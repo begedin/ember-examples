@@ -1,0 +1,18 @@
+/**
+
+  This style won't be used automatically.
+
+  Instead, it will become part of the app tree, so if the app uses sass, the
+  'app.scss' (or some other file) can import this one
+
+    @import 'ember-examples';
+
+  Really, most addons should behave this way. They should not affect how your
+  app looks at all.
+
+  This addon has examples on how to include styles automatically, but this
+  should only be happening if the styles are self-contained and do not affect
+  the rest of the app in any way. Even then, it's probably preferable to have
+  the user import the styles themselves, if they decide to do so.
+
+*/

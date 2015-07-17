@@ -1,9 +1,26 @@
+/**
+  All styles within the 'addon/styles' folder get merged together and are added
+  to the app's 'vendor.css'
+
+  This means we can have as many styles as we'd like, except for one potential
+  exception.
+
+  Due to the way the process works, and keep in mind this may be a bug and
+  might get corrected at some point, if we create a '.css' with the same name
+  as our addon, so 'ember-examples.css' in our case, then any additional '.css'
+  files other than that one will cause the app to throw errors during build
+  time and not work at all.
+
+  However, any number of .css files with any other filenames is just fine.
+
+  We could also use '.less' or '.sass', but that's going to be explained when
+  we get to it.
+*/
 .red-blue-square {
   font-weight: bold;
   color: black;
   height: 50px;
   width: 50px;
-  float: left;
   clear: both;
 }
 

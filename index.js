@@ -22,6 +22,9 @@ module.exports = {
   name: 'ember-examples',
 
   /**
+
+    INCLUDED hook
+
     Typically, we use the 'included' hook to import additional scripts and
     styles from the app's bower_components or vendor folders.
 
@@ -34,6 +37,9 @@ module.exports = {
   */
   included: function(app, parentAddon) {
     /**
+
+      IMPORTING FROM /vendor
+
       Back in the day, we didn't consider addon-nesting here, so we didn't have
       'parentAddon'. These days, if this addon is being used not by an app
       directly but by another addon, then the instance of that addon will be
@@ -52,6 +58,9 @@ module.exports = {
     app.import('vendor/general-styles.css');
 
     /**
+
+      IMPORTING FROM /bower_components
+
       Similarly, if we want to import something from the bower directory, we
       also use 'app.import'. In that case, however, we have acces to a variable
       which tells us where the bower directory is.
@@ -65,6 +74,18 @@ module.exports = {
       Also note that we cannot use 'app.import' to get anything from any other
       folder. If we try to import from anywhere other than 'vendor' or
       'bower_components', it will simply be ignored.
+
+    */
+
+    /**
+      ENABLING SASS
+
+      This last line, calling '_super' is required purely for ember-cli-sass to
+      work withour addon without throwing an error.
+
+      I'm still not perfectly clear if the call to '_super' is needed due to an
+      issue in ember-cli-sass or ember-cli itself, but suffice to say, without
+      an 'included' hook that contains this line, sass will not work in an app.
 
     */
 
